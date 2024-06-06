@@ -1,0 +1,71 @@
+using Godot;
+
+public partial class PlayerCharacter : RigidBody2D
+{
+    private float _maxSpeed = 750f;
+    private float _thrustSpeed = 25f;
+
+    private Sprite2D _playerSprite;
+    private ShapeCast2D _grabRaycast;
+
+    private bool _holdingBody = false;
+
+    private PackedScene _astronautBody = ResourceLoader.Load<PackedScene>("res://Mono/Astronaut/AstronautNPC.tscn");
+
+    public override void _Ready()
+    {
+        _playerSprite = GetNode<Sprite2D>("PlayerCharacter");
+        _grabRaycast = GetNode<ShapeCast2D>("PlayerCharacter/ShapeCast2D");
+    }
+
+    public override void _Process(double delta)
+    {
+        // Update angle
+        _playerSprite.LookAt(GetGlobalMousePosition());
+        _playerSprite.Rotation += Mathf.DegToRad(90f);
+        
+        // Handle physics independent inputs
+        // Throw is before Grab to fix a bug where you instantly dropped the body after grabbing
+        if (Input.IsActionJustPressed("Throw") && _holdingBody)
+        {
+            AstronautBasic instance = _astronautBody.Instantiate<AstronautBasic>();
+            GetTree().Root.GetChild(-1).AddChild(instance);
+            
+            instance.GlobalPosition = _playerSprite.GlobalPosition + (-_playerSprite.Transform.Y * 100);
+            instance.KnockOut();
+            instance.ApplyImpulse((-_playerSprite.Transform.Y * 500)+ LinearVelocity);
+
+            _holdingBody = false;
+        }
+        
+        if (Input.IsActionJustPressed("Grab") && !_holdingBody && _grabRaycast.IsColliding())
+        {
+            if(_grabRaycast.GetCollider(0) is AstronautBasic collidedNPC && !collidedNPC.IsConscious)
+            {
+                collidedNPC.QueueFree();
+
+                _holdingBody = true;
+            }
+        }
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        // Inputs
+        if (Input.IsActionPressed("Thrust"))
+        {
+            LinearVelocity += (GetGlobalMousePosition() - this.GlobalPosition) * (_thrustSpeed * (float)delta);
+        }
+        
+        // Clamp speed
+        LinearVelocity = new Vector2(
+            Mathf.Clamp(LinearVelocity.X, -_maxSpeed, _maxSpeed),
+            Mathf.Clamp(LinearVelocity.Y, -_maxSpeed, _maxSpeed));
+        
+        // Dampen speed since Damp Mode is fucked
+        LinearVelocity -= LinearVelocity * 0.01f;
+        
+        // Debuggy shit
+        GD.Print(LinearVelocity.Length());
+    }
+}

@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgn765n537x4u"]
+
+[ext_resource type="Script" path="res://Mono/Player/PlayerCharacter.cs" id="1_2n3fi"]
+[ext_resource type="Texture2D" uid="uid://k4r1subkx284" path="res://Mono/Player/PlayerCharacter.png" id="1_u64sh"]
+[ext_resource type="PackedScene" uid="uid://dndx7el1v760v" path="res://Mono/HUD/HeadsUpDisplay.tscn" id="3_snx23"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j7d7t"]
+friction = 0.85
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xq4y6"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_le0eh"]
+radius = 52.0865
+
+[node name="Player" type="RigidBody2D"]
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_j7d7t")
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+custom_integrator = true
+continuous_cd = 2
+max_contacts_reported = 4
+contact_monitor = true
+linear_damp = 2.075
+script = ExtResource("1_2n3fi")
+
+[node name="PlayerCharacter" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_u64sh")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
+position = Vector2(0, -120)
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+editor_draw_limits = true
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="PlayerCharacter"]
+shape = SubResource("CircleShape2D_xq4y6")
+target_position = Vector2(0, -150)
+max_results = 1
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_le0eh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HeadsUpDisplay" parent="CanvasLayer" instance=ExtResource("3_snx23")]
+size_flags_vertical = 3

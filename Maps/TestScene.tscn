@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://1bqjontmo855"]
+
+[ext_resource type="Texture2D" uid="uid://co2atwx6t4sdw" path="res://Maps/MainMap/Assets/StarBG-Sparce-Transparent.png" id="1_fdr61"]
+[ext_resource type="PackedScene" uid="uid://cgn765n537x4u" path="res://Mono/Player/PlayerCharacter.tscn" id="2_288uq"]
+[ext_resource type="PackedScene" uid="uid://c3512bmb8t5pd" path="res://Mono/Astronaut/AstronautNPC.tscn" id="3_ji8nw"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+custom_minimum_size = Vector2(2048, 2048)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 896.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="StarBg" type="Sprite2D" parent="ParallaxBackground/Stars"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("1_fdr61")
+
+[node name="Player" parent="." instance=ExtResource("2_288uq")]
+position = Vector2(470, 264)
+
+[node name="Map" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map"]
+build_mode = 1
+polygon = PackedVector2Array(-124, -55, 1223, -124, 1252, 799, -200, 719)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map"]
+polygon = PackedVector2Array(313, 104, 341, 104, 341, 332, 105, 331, 108, 96, 159, 97, 165, 277, 302, 282)
+
+[node name="AstronautNpc" parent="." instance=ExtResource("3_ji8nw")]
+position = Vector2(232, 209)
+
+[node name="AstronautNpc2" parent="." instance=ExtResource("3_ji8nw")]
+position = Vector2(609, 484)

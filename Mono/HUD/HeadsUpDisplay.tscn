@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dndx7el1v760v"]
+
+[ext_resource type="Shader" path="res://Shaders/Vignette-scimple.gdshader" id="1_1mr2h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pk6ab"]
+shader = ExtResource("1_1mr2h")
+shader_parameter/vignette_intensity = 1.23
+shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_rgb = Color(0.297219, 0.307863, 1, 1)
+
+[node name="HeadsUpDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pk6ab")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
