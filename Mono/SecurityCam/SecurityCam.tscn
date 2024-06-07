@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://e7hrqmgxaq1n"]
+
+[ext_resource type="Texture2D" uid="uid://bw0s836lv4ett" path="res://Tiles/SpaceShip/Camera.png" id="1_mxelm"]
+
+[node name="SecurityCam" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_mxelm")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(2.12821, 0)
+scale = Vector2(3.12821, 1)
+color = Color(1, 0, 0, 0.345098)
+polygon = PackedVector2Array(-1, -1, 38, -39, 38, 41)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(20.6171, 0)
+scale = Vector2(2.6234, 1)
+polygon = PackedVector2Array(-7.85895, -1, 38, -39, 38, 41)

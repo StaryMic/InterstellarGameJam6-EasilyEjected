@@ -45,7 +45,10 @@ public partial class AstronautBasic : RigidBody2D
 				KnockOut();
 				
 				// Slow down time for impact
-				_juice.BulletTime(2f);
+				_juice.BulletTime(1f);
+				
+				// Affect player vignette
+				_juice.VignetteImpact();
 				
 				// Toss a bit for fun :)
 				ApplyCentralForce((playerCharacter.Position - this.Position) * -500f);

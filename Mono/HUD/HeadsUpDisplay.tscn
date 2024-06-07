@@ -1,13 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dndx7el1v760v"]
+[gd_scene load_steps=6 format=3 uid="uid://dndx7el1v760v"]
 
 [ext_resource type="Shader" path="res://Shaders/Vignette-scimple.gdshader" id="1_1mr2h"]
 [ext_resource type="Script" path="res://Mono/HUD/HeadsUpDisplay.cs" id="1_lbagr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pk6ab"]
 shader = ExtResource("1_1mr2h")
-shader_parameter/vignette_intensity = 1.23
+shader_parameter/vignette_intensity = 1.0
 shader_parameter/vignette_opacity = 0.5
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_kmym7"]
+resource_name = "VignetteImpact"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vignette:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 4.0, 4.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_35b2y"]
+_data = {
+"VignetteImpact": SubResource("Animation_kmym7")
+}
 
 [node name="HeadsUpDisplay" type="Control"]
 layout_mode = 3
@@ -39,3 +60,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 text = "SPEED: "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_35b2y")
+}

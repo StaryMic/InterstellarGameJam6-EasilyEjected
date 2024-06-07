@@ -26,7 +26,7 @@ public partial class AirlockHatch : Area2D
 			_thuumpSound.Play();
 			
 			// Player died. Moron.
-			EmitSignal(GlobalScripts.GameStateSignals.SignalName.PlayerKilled);
+			_gameStateSignals.EmitSignal(GlobalScripts.GameStateSignals.SignalName.PlayerKilled);
 		}
 
 		if (body is Astronaut.AstronautBasic astronaut)
@@ -35,7 +35,7 @@ public partial class AirlockHatch : Area2D
 			_thuumpSound.Play();
 			
 			// Play success signal
-			EmitSignal(GlobalScripts.GameStateSignals.SignalName.Victory);
+			_gameStateSignals.EmitSignal(GlobalScripts.GameStateSignals.SignalName.Victory);
 		}
 	}
 }
