@@ -62,3 +62,8 @@ Throw={
 3d/default_gravity_vector=Vector3(0, 0, 0)
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

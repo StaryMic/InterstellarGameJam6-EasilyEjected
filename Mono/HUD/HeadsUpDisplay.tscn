@@ -5,8 +5,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pk6ab"]
 shader = ExtResource("1_1mr2h")
 shader_parameter/vignette_intensity = 1.23
-shader_parameter/vignette_opacity = 1.0
-shader_parameter/vignette_rgb = Color(0.297219, 0.307863, 1, 1)
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="HeadsUpDisplay" type="Control"]
 layout_mode = 3
@@ -24,4 +24,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)

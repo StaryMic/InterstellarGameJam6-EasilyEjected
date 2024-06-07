@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgn765n537x4u"]
+[gd_scene load_steps=6 format=3 uid="uid://cgn765n537x4u"]
 
 [ext_resource type="Script" path="res://Mono/Player/PlayerCharacter.cs" id="1_2n3fi"]
 [ext_resource type="Texture2D" uid="uid://k4r1subkx284" path="res://Mono/Player/PlayerCharacter.png" id="1_u64sh"]
-[ext_resource type="PackedScene" uid="uid://dndx7el1v760v" path="res://Mono/HUD/HeadsUpDisplay.tscn" id="3_snx23"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j7d7t"]
-friction = 0.85
+friction = 0.4
 bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq4y6"]
@@ -46,8 +45,3 @@ collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_le0eh")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HeadsUpDisplay" parent="CanvasLayer" instance=ExtResource("3_snx23")]
-size_flags_vertical = 3

@@ -2,8 +2,8 @@ using Godot;
 
 public partial class PlayerCharacter : RigidBody2D
 {
-    private float _maxSpeed = 750f;
-    private float _thrustSpeed = 25f;
+    private float _maxSpeed = 1000f;
+    private float _thrustSpeed = 10f;
 
     private Sprite2D _playerSprite;
     private ShapeCast2D _grabRaycast;
@@ -26,7 +26,7 @@ public partial class PlayerCharacter : RigidBody2D
         
         // Handle physics independent inputs
         // Throw is before Grab to fix a bug where you instantly dropped the body after grabbing
-        if (Input.IsActionJustPressed("Throw") && _holdingBody)
+        if (Input.IsActionJustPressed("Throw") && _holdingBody && !_grabRaycast.IsColliding())
         {
             AstronautBasic instance = _astronautBody.Instantiate<AstronautBasic>();
             GetTree().Root.GetChild(-1).AddChild(instance);
