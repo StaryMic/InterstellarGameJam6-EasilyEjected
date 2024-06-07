@@ -4,7 +4,7 @@ namespace IsolationInterstellarGameJam.Mono.Player;
 
 public partial class PlayerCharacter : RigidBody2D
 {
-    private float _maxSpeed = 1000f;
+    private float _maxSpeed = 2000f;
     private float _thrustSpeed = 10f;
 
     private Sprite2D _playerSprite;
@@ -68,6 +68,6 @@ public partial class PlayerCharacter : RigidBody2D
         LinearVelocity -= LinearVelocity * 0.01f;
         
         // Debuggy shit
-        GD.Print(LinearVelocity.Length());
+        // GD.Print(LinearVelocity.Length());
     }
 }

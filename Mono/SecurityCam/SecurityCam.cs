@@ -22,9 +22,14 @@ public partial class SecurityCam : Sprite2D
     private void DetectionAreaOnBodyEntered(Node2D body)
     {
         if (body is AstronautBasic)
+        {
             _gameStateSignals.EmitSignal(GameStateSignals.SignalName.AlarmSetOff);
-
+            GD.Print("I see an astronaut");
+        }
         if (body is PlayerCharacter)
+        {
             _gameStateSignals.EmitSignal(GameStateSignals.SignalName.AlarmSetOff);
+            GD.Print("I see the player");
+        }
     }
 }

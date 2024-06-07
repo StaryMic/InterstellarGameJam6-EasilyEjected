@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpxaiunku0c61"]
+
+[ext_resource type="Script" path="res://Mono/SimplePushZone/SimplePushZone.cs" id="1_xqx1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_120a0"]
+
+[node name="SimplePushZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_xqx1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_120a0")
