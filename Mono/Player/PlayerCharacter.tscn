@@ -14,12 +14,10 @@ radius = 50.0
 radius = 52.0865
 
 [node name="Player" type="RigidBody2D"]
-collision_mask = 6
+collision_mask = 14
 physics_material_override = SubResource("PhysicsMaterial_j7d7t")
-gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
-custom_integrator = true
 continuous_cd = 2
 max_contacts_reported = 4
 contact_monitor = true
@@ -45,3 +43,6 @@ collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_le0eh")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

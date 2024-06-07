@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace IsolationInterstellarGameJam.Mono.Astronaut;
 
 public partial class AstronautBasic : RigidBody2D
 {
@@ -13,8 +14,8 @@ public partial class AstronautBasic : RigidBody2D
 	
 	// Node references
 	private Sprite2D _astronautSprite;
-	private PlayerCharacter _playerCharacter;
-	private JuiceEffects _juice;
+	private Player.PlayerCharacter _playerCharacter;
+	private GlobalScripts.JuiceEffects _juice;
 	private AudioStreamPlayer2D _impactAudio;
 	
 	// Called when the node enters the scene tree for the first time.
@@ -22,8 +23,8 @@ public partial class AstronautBasic : RigidBody2D
 	{
 		// Set Node references
 		_astronautSprite = GetNode<Sprite2D>("Sprite2D");
-		_playerCharacter = GetTree().Root.GetChild(-1).GetNode<PlayerCharacter>("Player");
-		_juice = GetTree().Root.GetNode<JuiceEffects>("JuiceEffects");
+		_playerCharacter = GetTree().Root.GetChild(-1).GetNode<Player.PlayerCharacter>("Player");
+		_juice = GetTree().Root.GetNode<GlobalScripts.JuiceEffects>("JuiceEffects");
 		_impactAudio = GetNode<AudioStreamPlayer2D>("ImpactAudio");
 		
 		// Connect events
@@ -34,7 +35,7 @@ public partial class AstronautBasic : RigidBody2D
 	{
 		if(!IsConscious) return;
 		
-		if (body is PlayerCharacter playerCharacter)
+		if (body is Player.PlayerCharacter playerCharacter)
 		{
 			float impactSpeed = Mathf.Abs(playerCharacter.LinearVelocity.Length());
 			GD.Print("IMPACT SPEED: " + impactSpeed);

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ExitOnEsc="*res://Mono/GlobalScripts/ExitOnEsc.cs"
 JuiceEffects="*res://Mono/GlobalScripts/JuiceEffects.cs"
+GameStateSignals="*res://Mono/GlobalScripts/GameStateSignals.cs"
 
 [display]
 

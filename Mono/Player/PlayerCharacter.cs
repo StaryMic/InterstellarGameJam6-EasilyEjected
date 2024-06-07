@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IsolationInterstellarGameJam.Mono.Player;
+
 public partial class PlayerCharacter : RigidBody2D
 {
     private float _maxSpeed = 1000f;
@@ -28,7 +30,7 @@ public partial class PlayerCharacter : RigidBody2D
         // Throw is before Grab to fix a bug where you instantly dropped the body after grabbing
         if (Input.IsActionJustPressed("Throw") && _holdingBody && !_grabRaycast.IsColliding())
         {
-            AstronautBasic instance = _astronautBody.Instantiate<AstronautBasic>();
+            Astronaut.AstronautBasic instance = _astronautBody.Instantiate<Astronaut.AstronautBasic>();
             GetTree().Root.GetChild(-1).AddChild(instance);
             
             instance.GlobalPosition = _playerSprite.GlobalPosition + (-_playerSprite.Transform.Y * 100);
@@ -40,7 +42,7 @@ public partial class PlayerCharacter : RigidBody2D
         
         if (Input.IsActionJustPressed("Grab") && !_holdingBody && _grabRaycast.IsColliding())
         {
-            if(_grabRaycast.GetCollider(0) is AstronautBasic collidedNPC && !collidedNPC.IsConscious)
+            if(_grabRaycast.GetCollider(0) is Astronaut.AstronautBasic collidedNPC && !collidedNPC.IsConscious)
             {
                 collidedNPC.QueueFree();
 

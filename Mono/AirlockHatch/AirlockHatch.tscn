@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://uqo1ema0yfg3"]
+
+[ext_resource type="Script" path="res://Mono/AirlockHatch/AirlockHatch.cs" id="1_2tfc0"]
+[ext_resource type="Texture2D" uid="uid://6muw73ybqrg0" path="res://Mono/AirlockHatch/HatchTemp.png" id="1_4c8yu"]
+[ext_resource type="AudioStream" uid="uid://csq1x4kauxam5" path="res://Mono/AirlockHatch/AirlockWindLoop.ogg" id="3_ik5xm"]
+[ext_resource type="AudioStream" uid="uid://c4yk06flntcqq" path="res://Mono/AirlockHatch/AirlockThuump.ogg" id="4_pbgr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdnpq"]
+size = Vector2(100, 100)
+
+[node name="Airlock" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 5
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 200.0
+script = ExtResource("1_2tfc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fdnpq")
+
+[node name="AirlockHatch" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4c8yu")
+
+[node name="LoopingAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ik5xm")
+autoplay = true
+panning_strength = 1.35
+
+[node name="ThuumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pbgr6")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dndx7el1v760v"]
+[gd_scene load_steps=4 format=3 uid="uid://dndx7el1v760v"]
 
 [ext_resource type="Shader" path="res://Shaders/Vignette-scimple.gdshader" id="1_1mr2h"]
+[ext_resource type="Script" path="res://Mono/HUD/HeadsUpDisplay.cs" id="1_lbagr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pk6ab"]
 shader = ExtResource("1_1mr2h")
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lbagr")
 
 [node name="Vignette" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_pk6ab")
@@ -24,3 +26,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SpeedLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "SPEED: "

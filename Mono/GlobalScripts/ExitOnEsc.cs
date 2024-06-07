@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace IsolationInterstellarGameJam.Mono.GlobalScripts;
 
 public partial class ExitOnEsc : Node
 {

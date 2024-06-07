@@ -1,5 +1,7 @@
 using Godot;
-using System;
+
+namespace IsolationInterstellarGameJam.Mono.CameraController;
+
 [GlobalClass]
 public partial class FloatingCam : Camera2D
 {
