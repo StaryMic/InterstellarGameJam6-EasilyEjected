@@ -24,6 +24,9 @@ public partial class AirlockHatch : Area2D
 		{
 			player.Visible = false;
 			_thuumpSound.Play();
+			
+			// Player died. Moron.
+			EmitSignal(GlobalScripts.GameStateSignals.SignalName.PlayerKilled);
 		}
 
 		if (body is Astronaut.AstronautBasic astronaut)
