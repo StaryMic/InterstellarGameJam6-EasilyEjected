@@ -27,4 +27,14 @@ public partial class HeadsUpDisplay : Control
 	{ 
 		_speedLabel.Text = "Speed: " + (int)_player.LinearVelocity.Length();
 	}
+
+	public void ShowFailScreen()
+	{
+		this.GetNode<CenterContainer>("FailScreen").Visible = true;
+	}
+
+	public void ShowWinScreen()
+	{
+		
+	}
 }

@@ -11,7 +11,7 @@ size = Vector2(100, 100)
 [node name="Airlock" type="Area2D"]
 scale = Vector2(2, 2)
 collision_layer = 8
-collision_mask = 5
+collision_mask = 4
 gravity_space_override = 3
 gravity_point = true
 gravity_point_unit_distance = 200.0
@@ -26,7 +26,7 @@ texture = ExtResource("1_4c8yu")
 
 [node name="LoopingAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ik5xm")
-volume_db = 8.0
+volume_db = 3.0
 autoplay = true
 panning_strength = 1.35
 

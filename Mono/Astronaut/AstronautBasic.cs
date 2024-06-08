@@ -1,4 +1,5 @@
 using Godot;
+using IsolationInterstellarGameJam.Mono.GlobalScripts;
 
 namespace IsolationInterstellarGameJam.Mono.Astronaut;
 
@@ -17,6 +18,7 @@ public partial class AstronautBasic : RigidBody2D
 	private Player.PlayerCharacter _playerCharacter;
 	private GlobalScripts.JuiceEffects _juice;
 	private AudioStreamPlayer2D _impactAudio;
+	private GlobalScripts.GameStateSignals _gameStateSignals;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -26,6 +28,7 @@ public partial class AstronautBasic : RigidBody2D
 		_playerCharacter = GetTree().Root.GetChild(-1).GetNode<Player.PlayerCharacter>("Player");
 		_juice = GetTree().Root.GetNode<GlobalScripts.JuiceEffects>("JuiceEffects");
 		_impactAudio = GetNode<AudioStreamPlayer2D>("ImpactAudio");
+		_gameStateSignals = GetNode<GameStateSignals>("/root/GameStateSignals");
 		
 		// Connect events
 		this.BodyEntered += OnCollide;
@@ -55,6 +58,9 @@ public partial class AstronautBasic : RigidBody2D
 				
 				// Play impact audio
 				_impactAudio.Play();
+				
+				// Emit timer signal if not already running
+				_gameStateSignals.EmitSignal(GameStateSignals.SignalName.AlarmSetOff);
 			}
 		}
 	}

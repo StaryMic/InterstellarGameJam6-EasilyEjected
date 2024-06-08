@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3512bmb8t5pd"]
+[gd_scene load_steps=7 format=3 uid="uid://c3512bmb8t5pd"]
 
 [ext_resource type="Script" path="res://Mono/Astronaut/AstronautBasic.cs" id="1_jmwk6"]
-[ext_resource type="Texture2D" uid="uid://c2i18q54urb17" path="res://Mono/Astronaut/Assets/alive.png" id="2_boo2g"]
-[ext_resource type="Texture2D" uid="uid://crnuppacwekpe" path="res://Mono/Astronaut/Assets/unconscious.png" id="3_au572"]
+[ext_resource type="Texture2D" uid="uid://dtqgom7akco76" path="res://Mono/Astronaut/Assets/UnconsciousAstronaut.png" id="2_t05ed"]
 [ext_resource type="Texture2D" uid="uid://k4r1subkx284" path="res://Mono/Player/PlayerCharacter.png" id="4_fprik"]
 [ext_resource type="AudioStream" uid="uid://blqb8rejqbwwe" path="res://REMOVEMELATER/Anvil_land.ogg" id="5_2jg1c"]
 
@@ -23,8 +22,7 @@ continuous_cd = 2
 max_contacts_reported = 4
 contact_monitor = true
 script = ExtResource("1_jmwk6")
-_consciousImage = ExtResource("2_boo2g")
-_unconsciousImage = ExtResource("3_au572")
+_unconsciousImage = ExtResource("2_t05ed")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0, 1)
