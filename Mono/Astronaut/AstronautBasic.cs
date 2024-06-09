@@ -26,7 +26,7 @@ public partial class AstronautBasic : RigidBody2D
 		// Set Node references
 		_astronautSprite = GetNode<Sprite2D>("Sprite2D");
 		_playerCharacter = GetTree().Root.GetChild(-1).GetNode<Player.PlayerCharacter>("Player");
-		_juice = GetTree().Root.GetNode<GlobalScripts.JuiceEffects>("JuiceEffects");
+		_juice = GetTree().Root.GetChild(-1).GetNode<JuiceEffects>("JuiceEffects");
 		_impactAudio = GetNode<AudioStreamPlayer2D>("ImpactAudio");
 		_gameStateSignals = GetNode<GameStateSignals>("/root/GameStateSignals");
 		

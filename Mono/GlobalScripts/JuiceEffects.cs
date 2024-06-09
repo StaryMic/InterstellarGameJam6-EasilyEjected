@@ -3,6 +3,7 @@ using IsolationInterstellarGameJam.Mono.HUD;
 
 namespace IsolationInterstellarGameJam.Mono.GlobalScripts;
 
+[GlobalClass]
 public partial class JuiceEffects : Node
 {
 	// Node References

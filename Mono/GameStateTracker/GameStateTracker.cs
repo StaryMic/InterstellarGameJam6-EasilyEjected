@@ -18,7 +18,7 @@ public partial class GameStateTracker : Node
 	private AirlockHatch _airlock;
 	
 	// State objects
-	private Timer _timer = new Timer();
+	public Timer _timer = new Timer();
 	
 	// State variables
 	private bool hasWon;
@@ -37,8 +37,18 @@ public partial class GameStateTracker : Node
 		_gameStateSignals.Victory += GameStateSignalsOnVictory;
 		_gameStateSignals.TimerElapsed += GameStateSignalsOnTimerElapsed;
 		
-		// Make the damn timer
-		AddChild(_timer);
+		// Suicidal Signals
+		this.TreeExiting += () =>
+		{
+			_gameStateSignals.AlarmSetOff -= GameStateSignalsOnAlarmSetOff;
+			_gameStateSignals.Victory -= GameStateSignalsOnVictory;
+			_gameStateSignals.TimerElapsed -= GameStateSignalsOnTimerElapsed;
+		};
+		
+		// Make the timer
+		_timer = GetNode<Timer>("Timer");
+		
+		GD.Print("READY BLAH BLAH");
 	}
 
 	private void GameStateSignalsOnTimerElapsed()
@@ -51,7 +61,6 @@ public partial class GameStateTracker : Node
 			_hud.ShowFailScreen();
 			GetTree().Paused = true;
 		}
-		
 	}
 
 	

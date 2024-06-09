@@ -1,2 +1,3 @@
 https://aske4.itch.io/free-space-station (Inspiration)
 https://godotshaders.com/shader/vignette-shader-for-godot-4/ (Vignette Shader)
+https://github.com/Maaack/Godot-Scene-Loader (Level loading script) (THANK YOU SO MUCH THIS SAVED MY ASS)
