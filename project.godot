@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 ExitOnEsc="*res://Mono/GlobalScripts/ExitOnEsc.cs"
 GameStateSignals="*res://Mono/GlobalScripts/GameStateSignals.cs"
-SceneLoader="res://addons/maaacks_scene_loader/base/scenes/Autoloads/SceneLoader.tscn"
+SceneLoader="*res://addons/maaacks_scene_loader/base/scenes/Autoloads/SceneLoader.tscn"
 LevelLoadingScript="*res://Mono/GlobalScripts/LevelLoadingScript.cs"
 
 [display]

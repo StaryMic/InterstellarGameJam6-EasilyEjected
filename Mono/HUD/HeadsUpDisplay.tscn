@@ -167,6 +167,35 @@ libraries = {
 "": SubResource("AnimationLibrary_35b2y")
 }
 
+[node name="WinScreen" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 515.0
+offset_top = 267.0
+offset_right = 765.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen/VBoxContainer"]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="WinScreen/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]You disposed the body!"
+fit_content = true
+
+[node name="NextLevel" type="Button" parent="WinScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Next Level"
+
 [node name="FailScreen" type="CenterContainer" parent="."]
 visible = false
 layout_mode = 1

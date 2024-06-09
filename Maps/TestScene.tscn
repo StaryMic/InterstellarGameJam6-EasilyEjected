@@ -20,6 +20,8 @@ size = Vector2(434, 306)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HeadsUpDisplay" parent="HUD" instance=ExtResource("4_ox1ub")]
+CurrentLevel = "res://Maps/TestScene.tscn"
+NextLevel = "res://Maps/TestScene2.tscn"
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -90,6 +92,7 @@ script = ExtResource("9_esb0f")
 LevelTimer = 5.0
 
 [node name="Timer" type="Timer" parent="GameStateTracker"]
+one_shot = true
 
 [node name="JuiceEffects" type="Node" parent="."]
 script = ExtResource("10_ei1wr")
