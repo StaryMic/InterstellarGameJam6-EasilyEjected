@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Mono/Astronaut/AstronautBasic.cs" id="1_jmwk6"]
 [ext_resource type="Texture2D" uid="uid://dtqgom7akco76" path="res://Mono/Astronaut/Assets/UnconsciousAstronaut.png" id="2_t05ed"]
 [ext_resource type="Texture2D" uid="uid://k4r1subkx284" path="res://Mono/Player/PlayerCharacter.png" id="4_fprik"]
-[ext_resource type="AudioStream" uid="uid://blqb8rejqbwwe" path="res://REMOVEMELATER/Anvil_land.ogg" id="5_2jg1c"]
+[ext_resource type="AudioStream" uid="uid://cdvy7fpmv8ffi" path="res://Mono/Astronaut/Assets/AstronautPain.wav" id="4_py214"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bm5lk"]
 friction = 0.89
@@ -33,5 +33,5 @@ texture = ExtResource("4_fprik")
 shape = SubResource("CircleShape2D_jtucn")
 
 [node name="ImpactAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_2jg1c")
+stream = ExtResource("4_py214")
 bus = &"NPC"

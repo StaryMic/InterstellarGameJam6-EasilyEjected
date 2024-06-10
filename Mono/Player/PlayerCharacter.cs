@@ -9,6 +9,7 @@ public partial class PlayerCharacter : RigidBody2D
 
     private Sprite2D _playerSprite;
     private ShapeCast2D _grabRaycast;
+    private AudioStreamPlayer2D _thrustAudio;
 
     private bool _holdingBody = false;
 
@@ -20,6 +21,7 @@ public partial class PlayerCharacter : RigidBody2D
     {
         _playerSprite = GetNode<Sprite2D>("PlayerCharacter");
         _grabRaycast = GetNode<ShapeCast2D>("PlayerCharacter/ShapeCast2D");
+        _thrustAudio = GetNode<AudioStreamPlayer2D>("ThrustLoop");
     }
 
     public override void _Process(double delta)
@@ -50,6 +52,17 @@ public partial class PlayerCharacter : RigidBody2D
 
                 _holdingBody = true;
             }
+        }
+        
+        // Start and end audio with player thrust
+        if (Input.IsActionJustPressed("Thrust"))
+        {
+            _thrustAudio.Play();
+        }
+
+        if (Input.IsActionJustReleased("Thrust"))
+        {
+            _thrustAudio.Stop();
         }
     }
 

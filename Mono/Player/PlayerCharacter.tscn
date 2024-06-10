@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgn765n537x4u"]
+[gd_scene load_steps=7 format=3 uid="uid://cgn765n537x4u"]
 
 [ext_resource type="Script" path="res://Mono/Player/PlayerCharacter.cs" id="1_2n3fi"]
 [ext_resource type="Texture2D" uid="uid://k4r1subkx284" path="res://Mono/Player/PlayerCharacter.png" id="1_u64sh"]
+[ext_resource type="AudioStream" uid="uid://cceg48q1prkxl" path="res://Sounds/ThrustLoop.wav" id="3_j2k42"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j7d7t"]
 friction = 0.4
@@ -30,7 +31,7 @@ texture = ExtResource("1_u64sh")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter"]
 position = Vector2(0, -120)
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 editor_draw_limits = true
@@ -46,3 +47,7 @@ shape = SubResource("CircleShape2D_le0eh")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="ThrustLoop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j2k42")
+pitch_scale = 1.43

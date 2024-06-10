@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://03f4c06wmfpp"]
+[gd_scene load_steps=6 format=3 uid="uid://03f4c06wmfpp"]
 
 [ext_resource type="Texture2D" uid="uid://co2atwx6t4sdw" path="res://Maps/MainMap/Assets/StarBG-Sparce-Transparent.png" id="1_8r8lh"]
 [ext_resource type="FontFile" uid="uid://bdumkkq75eesb" path="res://Fonts/MB-ThinkTwice_Regular.ttf" id="2_crrc3"]
+[ext_resource type="AudioStream" uid="uid://bnjph61oi1p61" path="res://Sounds/632533__joedeshon__air_conditioning_unit_fan.wav" id="3_unulf"]
 
 [sub_resource type="GDScript" id="GDScript_bcjph"]
 resource_name = "ChangeToTutorial"
@@ -84,3 +85,8 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 35
 text = "Quit"
 script = SubResource("GDScript_7bj1y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_unulf")
+autoplay = true
+bus = &"Ambience"

@@ -16,6 +16,7 @@ public partial class GameStateTracker : Node
 	private PlayerCharacter _player;
 	private HeadsUpDisplay _hud;
 	private AirlockHatch _airlock;
+	private AudioStreamPlayer _alarmSound;
 	
 	// State objects
 	public Timer _timer = new Timer();
@@ -30,6 +31,7 @@ public partial class GameStateTracker : Node
 		_player = GetTree().Root.GetChild(-1).GetNode<PlayerCharacter>("Player");
 		_airlock = GetTree().Root.GetChild(-1).GetNode<AirlockHatch>("Airlock");
 		_hud = GetTree().Root.GetChild(-1).GetNode<HeadsUpDisplay>("HUD/HeadsUpDisplay");
+		_alarmSound = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
 		
 		
 		// Connect game events
@@ -80,6 +82,7 @@ public partial class GameStateTracker : Node
 		_timer.Start(LevelTimer);
 		_timer.Timeout += TimerOnTimeout;
 		GD.Print("Alarm has been set off");
+		_alarmSound.Play();
 	}
 
 	private void TimerOnTimeout()
