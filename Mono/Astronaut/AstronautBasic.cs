@@ -40,9 +40,9 @@ public partial class AstronautBasic : RigidBody2D
 		
 		if (body is Player.PlayerCharacter playerCharacter)
 		{
-			float impactSpeed = Mathf.Abs(playerCharacter.LinearVelocity.Length());
+			float impactSpeed = playerCharacter.LastFrameSpeed;
 			GD.Print("IMPACT SPEED: " + impactSpeed);
-			if (impactSpeed >= 150f)
+			if (impactSpeed >= 300f)
 			{
 				// Knock out
 				KnockOut();

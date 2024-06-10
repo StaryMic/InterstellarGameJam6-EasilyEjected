@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Isolation-InterstellarGameJam"
-run/main_scene="res://Maps/TestScene.tscn"
+run/main_scene="res://Maps/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,22 +19,18 @@ config/icon="res://icon.svg"
 
 ExitOnEsc="*res://Mono/GlobalScripts/ExitOnEsc.cs"
 GameStateSignals="*res://Mono/GlobalScripts/GameStateSignals.cs"
-SceneLoader="*res://addons/maaacks_scene_loader/base/scenes/Autoloads/SceneLoader.tscn"
 LevelLoadingScript="*res://Mono/GlobalScripts/LevelLoadingScript.cs"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="Isolation-InterstellarGameJam"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/maaacks_scene_loader/plugin.cfg")
 
 [input]
 

@@ -14,6 +14,8 @@ public partial class PlayerCharacter : RigidBody2D
 
     private PackedScene _astronautBody = ResourceLoader.Load<PackedScene>("res://Mono/Astronaut/AstronautNPC.tscn");
 
+    public float LastFrameSpeed = 0f;
+
     public override void _Ready()
     {
         _playerSprite = GetNode<Sprite2D>("PlayerCharacter");
@@ -69,5 +71,8 @@ public partial class PlayerCharacter : RigidBody2D
         
         // Debuggy shit
         // GD.Print(LinearVelocity.Length());
+        
+        // Set previous frame speed variable
+        LastFrameSpeed = LinearVelocity.Abs().Length();
     }
 }

@@ -10,7 +10,6 @@ public partial class HeadsUpDisplay : Control
 	private GameStateTracker _gameState;
 	
 	// Internal Node References
-	private Label _speedLabel;
     private Label _timeLabel;
 
     private Button _retryButton;
@@ -29,7 +28,6 @@ public partial class HeadsUpDisplay : Control
 		_gameState = GetTree().Root.GetChild(-1).GetNode<GameStateTracker>("GameStateTracker");
 		
 		// Set internal references
-		_speedLabel = GetNode<Label>("SpeedLabel");
 		_timeLabel = GetNode<Label>("TimeLeftLabel");
 		_retryButton = GetNode<Button>("FailScreen/VBoxContainer/Button");
 		_nextLevelButton = GetNode<Button>("WinScreen/VBoxContainer/NextLevel");
@@ -50,9 +48,6 @@ public partial class HeadsUpDisplay : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{ 
-		_speedLabel.Text = "Speed: " + (int)_player.LinearVelocity.Length();
-		
-		// _timeLabel.Text = Mathf.Snapped(_gameState._timer.TimeLeft,0.01).ToString();
 		_timeLabel.Text = _gameState._timer.TimeLeft.ToString().PadDecimals(2);
 	}
 	

@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://03f4c06wmfpp"]
+
+[ext_resource type="Texture2D" uid="uid://co2atwx6t4sdw" path="res://Maps/MainMap/Assets/StarBG-Sparce-Transparent.png" id="1_8r8lh"]
+[ext_resource type="FontFile" uid="uid://bdumkkq75eesb" path="res://Fonts/MB-ThinkTwice_Regular.ttf" id="2_crrc3"]
+
+[sub_resource type="GDScript" id="GDScript_bcjph"]
+resource_name = "ChangeToTutorial"
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _pressed():
+	get_tree().change_scene_to_file(\"res://Maps/MapSet/Tutorial.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_7bj1y"]
+resource_name = "QuitGame"
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _pressed():
+	get_tree().quit()
+"
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8r8lh")
+expand_mode = 1
+
+[node name="Menu" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_crrc3")
+theme_override_font_sizes/font_size = 75
+text = "Easily Ejected"
+
+[node name="StartGame" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 35
+text = "Open the airlock"
+script = SubResource("GDScript_bcjph")
+
+[node name="QuitButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+script = SubResource("GDScript_7bj1y")

@@ -1,3 +1,13 @@
 https://aske4.itch.io/free-space-station (Inspiration)
 https://godotshaders.com/shader/vignette-shader-for-godot-4/ (Vignette Shader)
-https://github.com/Maaack/Godot-Scene-Loader (Level loading script) (THANK YOU SO MUCH THIS SAVED MY ASS)
+
+http://modblackmoon.com/ (MB Think Twice font)
+
+My dad for helping me figure out a bug with garbage collection and loading scenes.
+
+========
+Socials
+Twitter: @StarryMicTwitch
+Tumblr: starrymic
+Neocities (WIP.): starrymic.neocities.org
+========
