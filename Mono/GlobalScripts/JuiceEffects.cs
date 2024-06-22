@@ -39,6 +39,12 @@ public partial class JuiceEffects : Node
 			};
 	}
 
+	public void FadeToBlack()
+	{
+		AnimationPlayer _vignetteAnimationPlayer = _hud.GetNode<AnimationPlayer>("AnimationPlayer");
+		_vignetteAnimationPlayer.Play("EndScreenFadeIn");
+	}
+
 	public override void _Process(double delta)
 	{
 		_bulletTimeLeft -= (float)delta;

@@ -11,9 +11,15 @@ public partial class ExitOnEsc : Node
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("ui_cancel"))
+		if (Input.IsActionJustPressed("ui_cancel"))
 		{
 			GetTree().Quit();
+		}
+		
+		if (Input.IsActionJustPressed("Restart"))
+		{
+			GetTree().Paused = false;
+			GetTree().ReloadCurrentScene();
 		}
 	}
 }

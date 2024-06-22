@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://03f4c06wmfpp"]
+[gd_scene load_steps=11 format=3 uid="uid://03f4c06wmfpp"]
 
 [ext_resource type="Texture2D" uid="uid://co2atwx6t4sdw" path="res://Maps/MainMap/Assets/StarBG-Sparce-Transparent.png" id="1_8r8lh"]
 [ext_resource type="FontFile" uid="uid://bdumkkq75eesb" path="res://Fonts/MB-ThinkTwice_Regular.ttf" id="2_crrc3"]
 [ext_resource type="AudioStream" uid="uid://bnjph61oi1p61" path="res://Sounds/632533__joedeshon__air_conditioning_unit_fan.wav" id="3_unulf"]
+[ext_resource type="Texture2D" uid="uid://mx05u8dx7tp6" path="res://polaroidcurved.png" id="4_4kwcb"]
+[ext_resource type="Texture2D" uid="uid://cebplvdgj67uc" path="res://polaroidflat.png" id="5_iy3va"]
+[ext_resource type="Texture2D" uid="uid://c7uq4cje33bar" path="res://Slash1.png" id="6_gpof6"]
+[ext_resource type="Texture2D" uid="uid://f0l3jqjwyvsi" path="res://slash2.png" id="7_morcl"]
+[ext_resource type="Texture2D" uid="uid://cwkvqtwnjxotu" path="res://slash3.png" id="8_lfmxc"]
 
 [sub_resource type="GDScript" id="GDScript_bcjph"]
 resource_name = "ChangeToTutorial"
@@ -90,3 +95,54 @@ script = SubResource("GDScript_7bj1y")
 stream = ExtResource("3_unulf")
 autoplay = true
 bus = &"Ambience"
+
+[node name="Polaroidcurved" type="Sprite2D" parent="."]
+position = Vector2(280, 384)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_4kwcb")
+
+[node name="Polaroidflat" type="Sprite2D" parent="."]
+position = Vector2(344, 144)
+rotation = -0.239789
+scale = Vector2(1.13044, 1.13044)
+texture = ExtResource("5_iy3va")
+
+[node name="Polaroidcurved2" type="Sprite2D" parent="."]
+position = Vector2(648, 120)
+rotation = 0.249757
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_4kwcb")
+flip_h = true
+
+[node name="Polaroidflat2" type="Sprite2D" parent="."]
+position = Vector2(984, 400)
+scale = Vector2(1.41258, 1.41258)
+texture = ExtResource("5_iy3va")
+
+[node name="Polaroidcurved3" type="Sprite2D" parent="."]
+position = Vector2(976, 176)
+rotation = -0.34312
+scale = Vector2(1.42041, 1.42041)
+texture = ExtResource("4_4kwcb")
+
+[node name="Slash1" type="Sprite2D" parent="."]
+position = Vector2(280, 376)
+rotation = -0.363158
+scale = Vector2(0.59625, 0.561943)
+texture = ExtResource("6_gpof6")
+
+[node name="Slash2" type="Sprite2D" parent="."]
+position = Vector2(344, 136)
+rotation = -0.317922
+scale = Vector2(0.648072, 0.387656)
+texture = ExtResource("7_morcl")
+
+[node name="Slash3" type="Sprite2D" parent="."]
+position = Vector2(976, 160)
+rotation = -0.165712
+scale = Vector2(1.22054, 1.22054)
+texture = ExtResource("8_lfmxc")
+
+[node name="Slash4" type="Sprite2D" parent="."]
+position = Vector2(984, 392)
+texture = ExtResource("7_morcl")

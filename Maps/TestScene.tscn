@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1bqjontmo855"]
+[gd_scene load_steps=16 format=3 uid="uid://1bqjontmo855"]
 
 [ext_resource type="Texture2D" uid="uid://co2atwx6t4sdw" path="res://Maps/MainMap/Assets/StarBG-Sparce-Transparent.png" id="1_fdr61"]
 [ext_resource type="PackedScene" uid="uid://cgn765n537x4u" path="res://Mono/Player/PlayerCharacter.tscn" id="2_288uq"]
@@ -10,10 +10,28 @@
 [ext_resource type="PackedScene" uid="uid://bpxaiunku0c61" path="res://Mono/SimplePushZone/SimplePushZone.tscn" id="8_uysw2"]
 [ext_resource type="Script" path="res://Mono/GameStateTracker/GameStateTracker.cs" id="9_esb0f"]
 [ext_resource type="Script" path="res://Mono/GlobalScripts/JuiceEffects.cs" id="10_ei1wr"]
-[ext_resource type="Script" path="res://Mono/GlobalScripts/LevelChangeTest.gd" id="11_wd38r"]
+[ext_resource type="Script" path="res://Mono/SimpleSignalIO/Transmitter.cs" id="11_fa4we"]
+[ext_resource type="Texture2D" uid="uid://drmcwa2alfk4k" path="res://icon.svg" id="11_rbye0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuwpj"]
-size = Vector2(434, 306)
+[sub_resource type="GDScript" id="GDScript_m0ns3"]
+resource_name = "blahblah"
+script/source = "extends RigidBody2D
+
+signal toggle_visibility
+
+func _ready():
+	connect(\"toggle_visibility\",_on_toggle_visibility)
+
+func _on_toggle_visibility(_fuckoff):
+	visible != visible
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_no8p5"]
+radius = 64.4981
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jomgs"]
+radius = 152.0
 
 [node name="TestScene" type="Node2D"]
 
@@ -97,10 +115,25 @@ one_shot = true
 [node name="JuiceEffects" type="Node" parent="."]
 script = ExtResource("10_ei1wr")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(2504, -288)
-script = ExtResource("11_wd38r")
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(2456, -312)
+script = SubResource("GDScript_m0ns3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(207, 143)
-shape = SubResource("RectangleShape2D_cuwpj")
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("11_rbye0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_no8p5")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(2720, -280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_jomgs")
+
+[node name="Transmitter" type="Node" parent="Area2D2" node_paths=PackedStringArray("_sourceNode", "_targetNode")]
+script = ExtResource("11_fa4we")
+_sourceNode = NodePath("..")
+_sourceSignal = "body_entered"
+_targetNode = NodePath("../../RigidBody2D")
+_targetSignal = "toggle_visibility"

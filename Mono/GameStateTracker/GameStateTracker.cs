@@ -45,6 +45,7 @@ public partial class GameStateTracker : Node
 			_gameStateSignals.AlarmSetOff -= GameStateSignalsOnAlarmSetOff;
 			_gameStateSignals.Victory -= GameStateSignalsOnVictory;
 			_gameStateSignals.TimerElapsed -= GameStateSignalsOnTimerElapsed;
+			_timer.Timeout -= TimerOnTimeout;
 		};
 		
 		// Make the timer
