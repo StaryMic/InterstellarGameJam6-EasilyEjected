@@ -101,11 +101,23 @@ position = Vector2(280, 384)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_4kwcb")
 
+[node name="Slash1" type="Sprite2D" parent="Polaroidcurved"]
+position = Vector2(0, -6.39999)
+rotation = -0.363158
+scale = Vector2(0.477, 0.449554)
+texture = ExtResource("6_gpof6")
+
 [node name="Polaroidflat" type="Sprite2D" parent="."]
 position = Vector2(344, 144)
 rotation = -0.239789
 scale = Vector2(1.13044, 1.13044)
 texture = ExtResource("5_iy3va")
+
+[node name="Slash2" type="Sprite2D" parent="Polaroidflat"]
+position = Vector2(1.68076, -6.8744)
+rotation = -0.078133
+scale = Vector2(0.573292, 0.342925)
+texture = ExtResource("7_morcl")
 
 [node name="Polaroidcurved2" type="Sprite2D" parent="."]
 position = Vector2(648, 120)
@@ -119,30 +131,19 @@ position = Vector2(984, 400)
 scale = Vector2(1.41258, 1.41258)
 texture = ExtResource("5_iy3va")
 
+[node name="Slash4" type="Sprite2D" parent="Polaroidflat2"]
+position = Vector2(0, -5.66339)
+scale = Vector2(0.707924, 0.707924)
+texture = ExtResource("7_morcl")
+
 [node name="Polaroidcurved3" type="Sprite2D" parent="."]
 position = Vector2(976, 176)
 rotation = -0.34312
 scale = Vector2(1.42041, 1.42041)
 texture = ExtResource("4_4kwcb")
 
-[node name="Slash1" type="Sprite2D" parent="."]
-position = Vector2(280, 376)
-rotation = -0.363158
-scale = Vector2(0.59625, 0.561943)
-texture = ExtResource("6_gpof6")
-
-[node name="Slash2" type="Sprite2D" parent="."]
-position = Vector2(344, 136)
-rotation = -0.317922
-scale = Vector2(0.648072, 0.387656)
-texture = ExtResource("7_morcl")
-
-[node name="Slash3" type="Sprite2D" parent="."]
-position = Vector2(976, 160)
-rotation = -0.165712
-scale = Vector2(1.22054, 1.22054)
+[node name="Slash3" type="Sprite2D" parent="Polaroidcurved3"]
+position = Vector2(3.78961, -10.6078)
+rotation = 0.177408
+scale = Vector2(0.859287, 0.859287)
 texture = ExtResource("8_lfmxc")
-
-[node name="Slash4" type="Sprite2D" parent="."]
-position = Vector2(984, 392)
-texture = ExtResource("7_morcl")
