@@ -5,4 +5,10 @@
 
 >Time to make: 5 days
 
->NOTE: No image or audio assets are included in this repository to avoid redistributing assets. There is a small list of assets used in a text file if you would like to restore them, though some were made by me and are not in that list, nor this repo.
+## Build Instructions
+- Download [Godot 4.2 Mono](https://godotengine.org/download/windows/)
+- Download the repo as a ZIP
+- Open Godot 4.2 Mono
+- Open the downloaded ZIP in the Project Manager
+- Open the project
+- Hit the play button
