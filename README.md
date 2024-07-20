@@ -12,3 +12,12 @@
 - Open the downloaded ZIP in the Project Manager
 - Open the project
 - Hit the play button
+
+## Screenshots
+![Title Screen](GithubAssets/titlescreen.png)
+
+![Ejection Screen](GithubAssets/killscreen.png)
+
+![Level Screenshot](GithubAssets/screenshot.png)
+
+![Another level screenshot](GithubAssets/screenshot2.png)

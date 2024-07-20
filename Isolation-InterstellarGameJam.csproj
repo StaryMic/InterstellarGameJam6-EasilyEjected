@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>IsolationInterstellarGameJam</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="GithubAssets\" />
+  </ItemGroup>
 </Project>
